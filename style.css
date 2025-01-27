@@ -1,0 +1,27 @@
+* {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus, select {
+  outline: 1px solid orangered;
+}
