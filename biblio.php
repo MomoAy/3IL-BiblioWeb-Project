@@ -49,10 +49,17 @@ require "process_recup_livres.php" ?>
                     </p>
                 </div>
                 <div class="p-6 pt-0 flex justify-center items-center">
-                    <a href="#" data-ripple-light="true" type="button"
-                        class="select-none rounded-lg bg-orange-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-500/20 transition-all hover:shadow-lg hover:shadow-orange-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                        Emprunter
-                    </a>
+                    <?php if (isset($_SESSION['id'])): ?>
+                        <a href="process_borrow_book.php?book_id=<?= $livre['id'] ?>" data-ripple-light="true" type="button"
+                            class="select-none rounded-lg bg-orange-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-500/20 transition-all hover:shadow-lg hover:shadow-orange-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                            Emprunter
+                        </a>
+                    <?php else: ?>
+                        <button data-ripple-light="true" type="button" disabled
+                            class="select-none rounded-lg bg-orange-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-500/20 transition-all hover:shadow-lg hover:shadow-orange-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                            Emprunter
+                        </button>
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endforeach; ?>

@@ -15,31 +15,38 @@ require "header.php"; ?>
                 <div>
                     <input
                         class="outline-none border-2 rounded-md px-2 py-1 text-slate-500 w-full focus:border-orange-300"
-                        placeholder="Nom" id="nom" name="nom" type="text" />
+                        placeholder="Nom" id="name" name="name" type="text" required />
                 </div>
 
                 <div>
                     <input
                         class="outline-none border-2 rounded-md px-2 py-1 text-slate-500 w-full focus:border-orange-300"
-                        placeholder="Prenom" id="prenom" name="prenom" type="text" />
+                        placeholder="Prenom" id="first_name" name="first_name" type="text" required />
                 </div>
 
                 <div>
                     <input
                         class="outline-none border-2 rounded-md px-2 py-1 text-slate-500 w-full focus:border-orange-300"
-                        placeholder="Email" id="email" name="email" type="email" />
+                        placeholder="Email" id="email" name="email" type="email" required />
                 </div>
 
                 <div>
                     <input
                         class="outline-none border-2 rounded-md px-2 py-1 text-slate-500 w-full focus:border-orange-300"
-                        placeholder="Mot de passe" id="password" name="password" type="password" />
+                        placeholder="Mot de passe" id="password" name="password" type="password" required />
+                </div>
+
+                <div>
+                    <input
+                        class="outline-none border-2 rounded-md px-2 py-1 text-slate-500 w-full focus:border-orange-300"
+                        placeholder="Confirmer le mot de passe" id="confirm_password" name="confirm_password"
+                        type="password" required />
                 </div>
 
                 <section class="w-full flex justify-center items-center">
                     <button
                         class="w-1/2 justify-center py-1 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 rounded-md text-white outline-none outline-orange-400"
-                        id="register" name="register" type="submit">
+                        id="register" type="submit">
                         S'inscrire
                     </button>
                 </section>

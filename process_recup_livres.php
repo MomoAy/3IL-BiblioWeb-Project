@@ -2,6 +2,8 @@
 require "connectDB.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $sql2 = " AND id NOT IN (SELECT book_id FROM livres_user)";
+
     //les catégories et les dates
     $cat = "SELECT categorie FROM livres";
     $cat_result = $conn->query($cat);
@@ -22,8 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     //les livres
     if (isset($_GET['date']) && isset($_GET['categorie'])) {
         $s_date = $_GET['date'];
-        $s_cat = $_GET['categorie'];
+        $s_cat = $_GET['categorie'];    
         $sql = "SELECT * FROM livres WHERE date = '$s_date' AND categorie = '$s_cat'";
+        $sql .= $sql2;
         $result = $conn->query($sql);
         if (!$result) {
             echo "Erreur";
@@ -33,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     } else if (isset($_GET['date'])) {
         $s_date = $_GET['date'];
         $sql = "SELECT * FROM livres WHERE date = '$s_date'";
+        $sql .= $sql2;
         $result = $conn->query($sql);
         if (!$result) {
             echo "Erreur";
@@ -42,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     } else if (isset($_GET['categorie'])) {
         $s_cat = $_GET['categorie'];
         $sql = "SELECT * FROM livres WHERE categorie = '$s_cat'";
+        $sql .= $sql2;
         $result = $conn->query($sql);
         if (!$result) {
             echo "Erreur";
@@ -49,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $livres_datas = $result->fetchAll();
         }
     } else {
-        $sql = "SELECT * FROM livres";
+        $sql = "SELECT * FROM livres WHERE id NOT IN (SELECT livre_id FROM livres_user)";
         $result = $conn->query($sql);
         if (!$result) {
             echo "Erreur";

@@ -16,15 +16,17 @@ require "header.php"; ?>
                 <form class="w-full" action="" method="post">
                     <div class="form-group">
                         <label for="name">Nom</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" <?php if (isset($_SESSION['id'])): ?>
+                                disabled value="<?= $_SESSION['name'] ?>" <?php endif; ?> required >
                     </div>
 
-                    <div class="form-group">
+                    <div class=" form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <input type="email" class="form-control" id="email" name="email" <?php if (isset($_SESSION['id'])): ?>
+                                disabled value="<?= $_SESSION['email'] ?>" <?php endif; ?> required>
                     </div>
 
-                    <div class="form-group">
+                    <div class=" form-group">
                         <label for="message">Message</label>
                         <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
                     </div>
